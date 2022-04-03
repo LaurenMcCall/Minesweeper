@@ -23,7 +23,7 @@ h3 {
   margin-bottom: 6px;
 }
 
-ul {
+section {
   list-style: none;
   margin: 1;
   padding: 0;
@@ -35,7 +35,7 @@ ul {
   height: calc(8 * 3rem);
 }
 
-li {
+section button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,20 +44,20 @@ li {
   color: white;
 }
 
-li.cell-number {
+section button.cell-number {
   color: white;
 }
 
-li.cell-bomb {
+section button.cell-bomb {
   background-color: rgb(205, 204, 204);
   color: red;
 }
 
-li.cell-flag {
+section button.cell-flag {
   background-color: rgb(205, 204, 204);
   color: rgb(30, 69, 244);
 }
 
-li.cell-free {
+section button.cell-free {
   background-color: rgb(205, 204, 204);
 }
