@@ -40,7 +40,7 @@ export function App() {
   async function handleCheckOrFlagCell(
     row: number,
     col: number,
-    action: string
+    action: 'check' | 'flag'
   ) {
     const checkOptions = {
       id: game.id,
@@ -63,6 +63,34 @@ export function App() {
     }
   }
 
+  function transformCellValue(value: string) {
+    if (value === 'F') {
+      return <i className="fa fa-flag" />
+    }
+
+    if (value === '_') {
+      return ''
+    }
+
+    if (value === '*') {
+      return <i className="fa fa-bomb" />
+    }
+    return value
+  }
+
+  function transformCellClassName(value: string) {
+    if (value === 'F') {
+      return 'cell-flag'
+    }
+    if (value === '*') {
+      return 'cell-bomb'
+    }
+    if (value === '_') {
+      return 'cell-free'
+    }
+    return undefined
+  }
+
   return (
     <main>
       <h1>Minesweeper</h1>
@@ -77,6 +105,7 @@ export function App() {
           return gameRow.map(function (square, col) {
             return (
               <button
+                className={transformCellClassName(square)}
                 onClick={function (event) {
                   event.preventDefault()
 
@@ -89,7 +118,7 @@ export function App() {
                 }}
                 key={col}
               >
-                {square}
+                {transformCellValue(square)}
               </button>
             )
           })
