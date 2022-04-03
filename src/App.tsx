@@ -38,8 +38,6 @@ export function App() {
   }
 
   async function handleClickCell(row: number, col: number) {
-    console.log(`Clicked a cell ${row} ${col}`)
-
     const checkOptions = {
       id: game.id,
       row,
@@ -61,6 +59,27 @@ export function App() {
     }
   }
 
+  async function handleRightClickCell(row: number, col: number) {
+    const checkOptions = {
+      id: game.id,
+      row,
+      col,
+    }
+    const url = `https://minesweeper-api.herokuapp.com/games/${game.id}/flag`
+
+    const fetchOptions = {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(checkOptions),
+    }
+
+    const response = await fetch(url, fetchOptions)
+    if (response.ok) {
+      const newGameStateJson = await response.json()
+
+      setGame(newGameStateJson)
+    }
+  }
   return (
     <main>
       <h1>Minesweeper</h1>
@@ -75,8 +94,15 @@ export function App() {
           return gameRow.map(function (square, col) {
             return (
               <button
-                onClick={function () {
+                onClick={function (event) {
+                  event.preventDefault()
+
                   handleClickCell(row, col)
+                }}
+                onContextMenu={function (event) {
+                  event.preventDefault()
+
+                  handleRightClickCell(row, col)
                 }}
                 key={col}
               >
