@@ -1,6 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export function App() {
+  const [game, setGame] = useState({
+    id: 1,
+    board: [
+      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+      [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+    ],
+    state: 'new',
+    mines: 10,
+  })
   return (
     <main>
       <h1>Minesweeper</h1>
@@ -9,70 +24,11 @@ export function App() {
       </h2>
 
       <ul>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
-        <li>_</li>
+        {game.board.map(function (gameRow) {
+          return gameRow.map(function (square, squareIndex) {
+            return <li key={squareIndex}>{square}</li>
+          })
+        })}
       </ul>
     </main>
   )
