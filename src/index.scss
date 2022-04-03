@@ -28,36 +28,77 @@ section {
   margin: 1;
   padding: 0;
   display: grid;
-
+  border: solid 3px rgb(124, 124, 124);
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
-  width: calc(8 * 3rem);
-  height: calc(8 * 3rem);
+  width: calc(8 * 2.3rem);
+  height: calc(8 * 2.3rem);
 }
 
 section button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: gray;
-  border: solid 1px black;
-  color: white;
+  background-color: rgb(205, 204, 204);
+
+  border: outset 4px rgb(183, 182, 182);
 }
 
-section button.cell-number {
-  color: white;
-}
+// section button.cell-number {
+//   color: white;
+// }
 
 section button.cell-bomb {
   background-color: rgb(205, 204, 204);
-  color: red;
+  color: black;
+  font-size: 1.1rem;
 }
 
 section button.cell-flag {
   background-color: rgb(205, 204, 204);
-  color: rgb(30, 69, 244);
+  color: red;
+  font-size: 1.1rem;
 }
 
 section button.cell-free {
+  background-color: rgb(205, 204, 204);
+  border: solid 1px rgb(124, 124, 124);
+}
+
+button.cell-number {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+button.cell-1 {
+  color: blue;
+  background-color: rgb(205, 204, 204);
+}
+button.cell-2 {
+  color: green;
+  background-color: rgb(205, 204, 204);
+}
+button.cell-3 {
+  color: red;
+  background-color: rgb(205, 204, 204);
+}
+button.cell-4 {
+  color: purple;
+  background-color: rgb(205, 204, 204);
+}
+button.cell-5 {
+  color: maroon;
+  background-color: rgb(205, 204, 204);
+}
+button.cell-6 {
+  color: turquoise;
+  background-color: rgb(205, 204, 204);
+}
+button.cell-7 {
+  color: black;
+  background-color: rgb(205, 204, 204);
+}
+button.cell-8 {
+  color: gray;
   background-color: rgb(205, 204, 204);
 }
