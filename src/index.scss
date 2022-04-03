@@ -18,12 +18,15 @@ main {
   align-items: center;
   justify-content: center;
 }
-
+h2 {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
 h3 {
-  margin-bottom: 6px;
+  margin-bottom: 3px;
 }
 
-section {
+section.difficulty-0 {
   list-style: none;
   margin: 1;
   padding: 0;
@@ -31,8 +34,28 @@ section {
   border: solid 3px rgb(124, 124, 124);
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
-  width: calc(8 * 2.3rem);
-  height: calc(8 * 2.3rem);
+  width: calc(8 * 2rem);
+  height: calc(8 * 2rem);
+}
+section.difficulty-1 {
+  margin: 1;
+  padding: 0;
+  display: grid;
+  border: solid 3px rgb(124, 124, 124);
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  width: calc(16 * 2rem);
+  height: calc(16 * 2rem);
+}
+section.difficulty-2 {
+  margin: 1;
+  padding: 0;
+  display: grid;
+  border: solid 3px rgb(124, 124, 124);
+  grid-template-columns: repeat(24, 1fr);
+  grid-template-rows: repeat(24, 1fr);
+  width: calc(24 * 2rem);
+  height: calc(24 * 2rem);
 }
 
 section button {
@@ -40,24 +63,19 @@ section button {
   justify-content: center;
   align-items: center;
   background-color: rgb(205, 204, 204);
-
   border: outset 4px rgb(183, 182, 182);
 }
-
-// section button.cell-number {
-//   color: white;
-// }
 
 section button.cell-bomb {
   background-color: rgb(205, 204, 204);
   color: black;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 section button.cell-flag {
   background-color: rgb(205, 204, 204);
   color: red;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 section button.cell-free {
@@ -68,7 +86,7 @@ section button.cell-free {
 button.cell-number {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 button.cell-1 {
   color: blue;
