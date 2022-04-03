@@ -1,5 +1,79 @@
 import React from 'react'
 
 export function App() {
-  return <div>Hello, World </div>
+  return (
+    <main>
+      <h1>Minesweeper</h1>
+      <h2>
+        <button>New Easy Game</button>
+      </h2>
+
+      <ul>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+        <li>_</li>
+      </ul>
+    </main>
+  )
 }
