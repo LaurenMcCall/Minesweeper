@@ -13,10 +13,12 @@ export function App() {
       [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
       [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
     ],
-    state: undefined,
+    state: 'new',
     mines: undefined,
   })
   const [difficulty, setDifficulty] = useState<0 | 1 | 2>(0)
+
+  // const [state, setState] = useState<'won'| 'lost'>()
 
   async function handleNewGame(newGameDifficulty: 0 | 1 | 2) {
     const gameDifficultyOptions = { difficulty: newGameDifficulty }
@@ -99,41 +101,62 @@ export function App() {
     return undefined
   }
 
+  let gameStateMessage = game.state
+  switch (gameStateMessage) {
+    case 'new':
+      gameStateMessage = 'New Game — Make Your Move'
+      break
+    case 'won':
+      gameStateMessage = 'You Won!'
+      break
+    case 'lost':
+      gameStateMessage = 'You Lost!'
+      break
+    case 'playing':
+      gameStateMessage = 'Keep Dodging Those Mines!'
+  }
+
+  // const header = game.state
   return (
-    <main>
-      <h1>Minesweeper</h1>
-      <h2>
-        <button onClick={() => handleNewGame(0)}>New Easy Game</button>
-        <button onClick={() => handleNewGame(1)}>New Intermediate Game</button>
-        <button onClick={() => handleNewGame(2)}>New Difficult Game</button>
-      </h2>
-      <h3>Game #: {game.id}</h3>
-      <h3>Mines: {game.mines}</h3>
+    <div>
+      <main>
+        <h1>Minesweeper</h1>
+        <h2>
+          <button onClick={() => handleNewGame(0)}>New Easy Game</button>
+          <button onClick={() => handleNewGame(1)}>
+            New Intermediate Game
+          </button>
+          <button onClick={() => handleNewGame(2)}>New Difficult Game</button>
+        </h2>
+        <h3>Game #: {game.id}</h3>
+        <h3>{gameStateMessage}</h3>
+        <h3>Mines: {game.mines}</h3>
 
-      <section className={`difficulty-${difficulty}`}>
-        {game.board.map(function (gameRow, row) {
-          return gameRow.map(function (square, col) {
-            return (
-              <button
-                className={transformCellClassName(square)}
-                onClick={function (event) {
-                  event.preventDefault()
+        <section className={`difficulty-${difficulty}`}>
+          {game.board.map(function (gameRow, row) {
+            return gameRow.map(function (square, col) {
+              return (
+                <button
+                  className={transformCellClassName(square)}
+                  onClick={function (event) {
+                    event.preventDefault()
 
-                  handleCheckOrFlagCell(row, col, 'check')
-                }}
-                onContextMenu={function (event) {
-                  event.preventDefault()
+                    handleCheckOrFlagCell(row, col, 'check')
+                  }}
+                  onContextMenu={function (event) {
+                    event.preventDefault()
 
-                  handleCheckOrFlagCell(row, col, 'flag')
-                }}
-                key={col}
-              >
-                {transformCellValue(square)}
-              </button>
-            )
-          })
-        })}
-      </section>
-    </main>
+                    handleCheckOrFlagCell(row, col, 'flag')
+                  }}
+                  key={col}
+                >
+                  {transformCellValue(square)}
+                </button>
+              )
+            })
+          })}
+        </section>
+      </main>
+    </div>
   )
 }
