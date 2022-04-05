@@ -104,7 +104,7 @@ export function App() {
   let gameStateMessage = game.state
   switch (gameStateMessage) {
     case 'new':
-      gameStateMessage = 'New Game — Make Your Move'
+      gameStateMessage = 'Time For A New Game — Make A Move'
       break
     case 'won':
       gameStateMessage = 'You Won!'
@@ -120,7 +120,7 @@ export function App() {
   return (
     <div>
       <main>
-        <h1>Minesweeper</h1>
+        <h1 className="stroke-text">Minesweeper</h1>
         <h2>
           <button onClick={() => handleNewGame(0)}>New Easy Game</button>
           <button onClick={() => handleNewGame(1)}>
@@ -128,9 +128,9 @@ export function App() {
           </button>
           <button onClick={() => handleNewGame(2)}>New Difficult Game</button>
         </h2>
-        <h3>Game #: {game.id}</h3>
-        <h3>{gameStateMessage}</h3>
-        <h3>Mines: {game.mines}</h3>
+        <h3 className="stroke-text">Game #: {game.id}</h3>
+        <h3 className="stroke-text">{gameStateMessage}</h3>
+        <h3 className="stroke-text">Mines Remaining: {game.mines}</h3>
 
         <section className={`difficulty-${difficulty}`}>
           {game.board.map(function (gameRow, row) {
