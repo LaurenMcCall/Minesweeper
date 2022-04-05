@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { Header } from './components/header'
 
+//QUESTION Why not use a component here?
 export function App() {
   const [game, setGame] = useState({
     id: undefined,
@@ -115,12 +117,17 @@ export function App() {
     case 'playing':
       gameStateMessage = 'Keep Dodging Those Mines!'
   }
-
+  // function transformGameStateMessage() {
+  //   if (gameStateMessage === 'won') {
+  //     return 'blink-me'
+  //   }
+  // }
   // const header = game.state
   return (
     <div>
       <main>
-        <h1 className="stroke-text">Minesweeper</h1>
+        {/* <h1 className="stroke-text">Minesweeper</h1> */}
+        <Header />
         <h2>
           <button onClick={() => handleNewGame(0)}>New Easy Game</button>
           <button onClick={() => handleNewGame(1)}>
@@ -129,7 +136,14 @@ export function App() {
           <button onClick={() => handleNewGame(2)}>New Difficult Game</button>
         </h2>
         <h3 className="stroke-text">Game #: {game.id}</h3>
-        <h3 className="stroke-text">{gameStateMessage}</h3>
+        <h3
+          className={`stroke-text ${
+            gameStateMessage === 'You Won!' ? 'blink-me' : ''
+          }`}
+        >
+          {/* <input className={`form-control round-lg ${this.state.valid ? '' : 'error'}`} /> */}
+          {gameStateMessage}
+        </h3>
         <h3 className="stroke-text">Mines Remaining: {game.mines}</h3>
 
         <section className={`difficulty-${difficulty}`}>
